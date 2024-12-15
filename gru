@@ -25,10 +25,10 @@ for _ in range(num_processes):
 for child_pid in process_list:
     exit_code = 1
     while exit_code != 0:
-    finished_pid, status_code = os.wait()
-    exit_code = status_code >> 8
-    print(f'Gru[{main_pid}]: process terminated. PID {finished_pid}. Exit status {status_code}.', flush=True)
-    if exit_code != 0:
-        child_process(track=False)
+        finished_pid, status_code = os.wait()
+        exit_code = status_code >> 8
+        print(f'Gru[{main_pid}]: process terminated. PID {finished_pid}. Exit status {status_code}.', flush=True)
+        if exit_code != 0:
+            child_process(track=False)
 
     
